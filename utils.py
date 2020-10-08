@@ -12,3 +12,10 @@ def get_spikes(df, col_name, t_ini=0.3, t_fin=0.1):
                 imax = col[i_pico:i].idxmax()
                 df.loc[imax, to_col] = 1
                 i_pico =-1
+
+def shanon_entropy(X, w):
+    p = X.rolling(w).apply(lambda x: int(''.join(map(lambda x: str(int(x)), x)), 2)).value_counts()
+    p /= p.sum()
+    return -np.sum(p*np.log2(p))
+    
+    
