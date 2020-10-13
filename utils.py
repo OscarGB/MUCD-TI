@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def get_spikes(df, col_name, t_ini=0.3, t_fin=0.1):
     col = df[col_name]
     to_col = col_name + "_bin"
@@ -17,13 +20,20 @@ def resolution(X, n):
     return X.groupby(X.index // n).max()
 
 def shanon_entropy(X, wlen):
-    p = X.rolling(wlen).apply(lambda x: int(''.join(map(lambda x: str(int(x)), x)), 2)).value_counts()
+    if wlen == 1:
+        p = X.value_counts()
+    else:
+        p = X.rolling(wlen).apply(lambda x: int(''.join(map(lambda x: str(int(x)), x)), 2)).value_counts()
     p /= p.sum()
     return -np.sum(p*np.log2(p))
     
 def shanon_entropy_join(X, wlen):
-    p = X.rolling(wlen).apply(lambda x: int(''.join(map(lambda x: str(int(x)), x)), 2))
-    p = p.dropna()
+    if wlen == 1:
+        p = X
+    else:
+        p = X.rolling(wlen).apply(lambda x: int(''.join(map(lambda x: str(int(x)), x)), 2))
+        p = p.dropna()
+    
     p["joined"] = p.values.tolist()
     p = p.joined.value_counts()
     p /= p.sum()
