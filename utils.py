@@ -36,7 +36,7 @@ def shanon_entropy_join(X, wlen):
         p = X.rolling(wlen).apply(lambda x: np.packbits(x.astype('u1'))[0], raw=True)
         p = p.dropna()
     
-    p["joined"] = p.values.tolist()
+    p["joined"] = p[p.columns[0]] * 1000 + p[p.columns[1]]
     p = p.joined.value_counts()
     p /= p.sum()
     return -np.sum(p*np.log2(p))
@@ -72,3 +72,10 @@ def mutual_info_optimized(X, cols, wlen):
     print(f"Entropia conjunta: {joined_entropy}")
     del p, p1, p2, p3
     return  entropy1 + entropy2 - joined_entropy
+
+def get_max_window(X, cols):
+    windows = []
+    for c in cols:
+        w = X.index[X[c] > 0]
+        windows.append(min(w[1:] - w[:-1]))
+    return min(windows)
