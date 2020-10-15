@@ -50,6 +50,11 @@ def mutual_info(X,cols,wlen):
     print(f"Entropia conjunta: {joined_entropy}")
     return  entropy1+ entropy2 - joined_entropy
 
+def calculate_entropy(X):
+    p = X.value_counts()
+    p /= p.sum()
+    return -np.sum(p*np.log2(p))
+
 def mutual_info_optimized(X, cols, wlen):
     if wlen == 1:
         p = X
@@ -58,20 +63,27 @@ def mutual_info_optimized(X, cols, wlen):
         p = p.dropna()
     
     p["joined"] = p[cols[0]] * 1000 + p[cols[1]]
-    p1 = p[cols[0]].value_counts()
-    p1 /= p1.sum()
-    entropy1 = -np.sum(p1*np.log2(p1))
+    #p1 = p[cols[0]].value_counts()
+    #p1 /= p1.sum()
+    #entropy1 = -np.sum(p1*np.log2(p1))
+    entropy1 = calculate_entropy(p[cols[0]])
     print(f"Entropia primera columna: {entropy1}")
-    p2 = p[cols[1]].value_counts()
-    p2 /= p2.sum()
-    entropy2 = -np.sum(p2*np.log2(p2))
+    #p2 = p[cols[1]].value_counts()
+    #p2 /= p2.sum()
+    #entropy2 = -np.sum(p2*np.log2(p2))
+    entropy2 = calculate_entropy(p[cols[1]])
     print(f"Entropia segunda columna: {entropy2}")
-    p3 = p['joined'].value_counts()
-    p3 /= p3.sum()
-    joined_entropy = -np.sum(p3*np.log2(p3))
+    #p3 = p['joined'].value_counts()
+    #p3 /= p3.sum()
+    #joined_entropy = -np.sum(p3*np.log2(p3))
+    joined_entropy = calculate_entropy(p['joined'])
     print(f"Entropia conjunta: {joined_entropy}")
-    del p, p1, p2, p3
-    return  entropy1 + entropy2 - joined_entropy
+    del p
+    return  entropy1 + entropy2 - joined_entropy, [entropy1, entropy2], joined_entropy
+
+def transfer_info(X, cols, wlen):
+    info, ents, joined = mutual_info_optimized(X,cols,wlen)
+    return [info/ent for ent in reversed(ents)], info, ents, joined
 
 def get_max_window(X, cols):
     windows = []
@@ -79,3 +91,14 @@ def get_max_window(X, cols):
         w = X.index[X[c] > 0]
         windows.append(min(w[1:] - w[:-1]))
     return min(windows)
+
+def get_bursts(df, threshold, from_cols, dest_cols):
+    for fc, dc in zip(from_cols, dest_cols):
+        w = df.index[df[fc] > 0]
+        w = (w[1:] - w[:-1]).to_list()
+        w.insert(0, np.inf)
+        df["distance"] = 0
+        df.loc[df[fc] > 0, "distance"] = w
+        df[dc] = 0
+        df.loc[df.distance > threshold, dc] = 1
+    return df.drop(columns="distance")
