@@ -63,21 +63,9 @@ def mutual_info_optimized(X, cols, wlen):
         p = p.dropna()
     
     p["joined"] = p[cols[0]] * 1000 + p[cols[1]]
-    #p1 = p[cols[0]].value_counts()
-    #p1 /= p1.sum()
-    #entropy1 = -np.sum(p1*np.log2(p1))
     entropy1 = calculate_entropy(p[cols[0]])
-    #print(f"Entropia primera columna: {entropy1}")
-    #p2 = p[cols[1]].value_counts()
-    #p2 /= p2.sum()
-    #entropy2 = -np.sum(p2*np.log2(p2))
     entropy2 = calculate_entropy(p[cols[1]])
-    #print(f"Entropia segunda columna: {entropy2}")
-    #p3 = p['joined'].value_counts()
-    #p3 /= p3.sum()
-    #joined_entropy = -np.sum(p3*np.log2(p3))
     joined_entropy = calculate_entropy(p['joined'])
-    #print(f"Entropia conjunta: {joined_entropy}")
     del p
     return  entropy1 + entropy2 - joined_entropy, [entropy1, entropy2], joined_entropy
 
