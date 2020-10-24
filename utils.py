@@ -14,7 +14,7 @@ def get_spikes(df, col_name, t_ini=0.3, t_fin=0.1):
             if col[i] <= t_fin:
                 imax = col[i_pico:i].idxmax()
                 df.loc[imax, to_col] = 1
-                i_pico =-1
+                i_pico = -1
 
 def resolution(X, n):
     if n == 1:
