@@ -90,3 +90,7 @@ def get_bursts(df, threshold, from_cols, dest_cols):
         df[dc] = 0
         df.loc[df.distance > threshold, dc] = 1
     return df.drop(columns="distance")
+
+def get_error_proportion(X, n):
+    A = X.groupby(X.index // n).sum()
+    return A[A>1].count()/len(A)
