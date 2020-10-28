@@ -71,7 +71,7 @@ def mutual_info_optimized(X, cols, wlen):
 
 def transfer_info(X, cols, wlen):
     info, ents, joined = mutual_info_optimized(X,cols,wlen)
-    return [info/ent for ent in reversed(ents)], info, ents, joined
+    return [info/ent for ent in ents], info, ents, joined
 
 def get_max_window(X, cols):
     windows = []
