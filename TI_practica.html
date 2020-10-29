@@ -13087,7 +13087,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
@@ -13125,30 +13125,11 @@ div#notebook {
 
 </div>
 </div>
-<!--
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="TODO:">TODO:<a class="anchor-link" href="#TODO:">&#182;</a></h1><ul>
-<li>Calcular información mutua para todos los ficheros con resoluciones grandes <b style='color: green'>DONE</b></li>
-<li>Función transferencia info, que es copiar la de informacion mutua y devolver dividiendo entre la entropia <b style='color: green'>DONE</b></li>
-<li>Calcular información mutua para todos los ficheros utilizando los bursts como codificación <b style='color: green'>DONE</b></li>
-<li>Gráficas interspike para explicar los thresholds en get_bursts y en la selección de resoluciones <b style='color: green'>DONE</b></li>
-<li>Gráficas de una zona de los spikes para explicar los thresholds en get_spikes <b style='color: green'>DONE</b></li>
-<li>Gráficas de cada coso para ver cómo queda (Heatmaps, por tamaño de palabra...) <b style='color: green'>DONE</b></li>
-<li>Comparar transferencia de información LP-&gt;VD frente a VD-&gt;LP <b style='color: green'>DONE</b></li>
-<li>16 gráficas de transferencia de información (una por tamaño de palabra) con 3 lineas donde cada una corresponden a un fichero <b style='color: green'>DONE</b></li>
-<li>Shiftear una serie y medir la mi en función del retraso</li>
-<li>Ver cuántos spikes pillamos sin querer al ampliar la resolucion <b style='color: green'>DONE</b></li>
-</ul>
-</div>
-</div>
--->
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -13254,28 +13235,41 @@ devolver la serie</code></pre>
 </div>
 </div>
 
-</div>from_files = ["./DatosSinapsisArtificial/TrozoC.txt",
-              "./DatosSinapsisArtificial/TrozoG.txt",
-              "./DatosSinapsisArtificial/TrozoR.txt"]
-cols = [["LP", "VD"],
-        ["LP", "VD", "GABA"],
-        ["LP", "VD"]]
-thresholds = [{"LP": [0.3, 0.1], "VD": [0.25, 0.1]},
-              {"LP": [0.3, 0.1], "VD": [0.25, 0.1]},
-              {"LP": [0.9, 0.1], "VD": [0.25, 0.1]}]
-to_files = ["./DatosSinapsisArtificial/TrozoC_bin.csv",
-            "./DatosSinapsisArtificial/TrozoG_bin.csv",
-            "./DatosSinapsisArtificial/TrozoR_bin.csv"]
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">from_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./DatosSinapsisArtificial/TrozoC.txt&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoG.txt&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoR.txt&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="s2">&quot;VD&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="s2">&quot;VD&quot;</span><span class="p">,</span> <span class="s2">&quot;GABA&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="s2">&quot;VD&quot;</span><span class="p">]]</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;LP&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;VD&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span>
+              <span class="p">{</span><span class="s2">&quot;LP&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;VD&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]},</span>
+              <span class="p">{</span><span class="s2">&quot;LP&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="s2">&quot;VD&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]}]</span>
+<span class="n">to_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./DatosSinapsisArtificial/TrozoC_bin.csv&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;./DatosSinapsisArtificial/TrozoG_bin.csv&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;./DatosSinapsisArtificial/TrozoR_bin.csv&quot;</span><span class="p">]</span>
 
-for i in range(len(from_files)):
-    if os.path.isfile(to_files[i]):
-        continue
-    df = pd.read_csv(from_files[i], skiprows=3, 
-                     header=None, names=cols[i], dtype=np.float, sep='\s+', decimal=',', index_col=False)
-    for col in thresholds[i].keys():
-        get_spikes(df, col, t_ini=thresholds[i][col][0], t_fin=thresholds[i][col][0])
-    df.to_csv(to_files[i])
-    del df
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">from_files</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+        <span class="k">continue</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">from_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> 
+                     <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">cols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">get_spikes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">t_ini</span><span class="o">=</span><span class="n">thresholds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">col</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_fin</span><span class="o">=</span><span class="n">thresholds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">col</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">del</span> <span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13527,61 +13521,74 @@ devolver todos los valores calculados</code></pre>
 
 </div>
 </div>
-</div>from_files = ["./DatosSinapsisArtificial/TrozoC_bin.csv",
-              "./DatosSinapsisArtificial/TrozoG_bin.csv",
-              "./DatosSinapsisArtificial/TrozoR_bin.csv"]
-cols = [["LP_bin", "VD_bin"],
-        ["LP_bin", "VD_bin"],
-        ["LP_bin", "VD_bin"]]
-to_files = ["dataC.pkl",
-            "dataG.pkl",
-            "dataR.pkl"]
-resolutions = [150, 150, 150]
-word_lens = [8, 8, 8]
-col_names = [f"word_len {i+1}" for i in range(max(word_lens))]
-row_names = [f"resolution {i+1}" for i in range(max(resolutions))]
-for n in range(len(from_files)):
-    df = pd.read_csv(from_files[n])[cols[n]]
-    df = df.astype({cols[n][0]:'u1', cols[n][0]:'u1'})
-    try:
-        with open(to_files[n], "rb") as f:
-            data = pickle.load(f)
-    except FileNotFoundError:
-        data = {
-            "transfer_info_col1_col2" : pd.DataFrame(columns = col_names, index = row_names),
-            "transfer_info_col2_col1" : pd.DataFrame(columns = col_names, index = row_names),
-            "mutual_info" : pd.DataFrame(columns = col_names, index = row_names),
-            "col1_entropy" : pd.DataFrame(columns = col_names, index = row_names),
-            "col2_entropy" : pd.DataFrame(columns = col_names, index = row_names),
-            "joined_entropy" : pd.DataFrame(columns = col_names, index = row_names)
-        }
-        data["transfer_info_col1_col2"][:] = 0
-        data["transfer_info_col2_col1"][:] = 0
-        data["mutual_info"][:] = 0
-        data["col1_entropy"][:] = 0
-        data["col2_entropy"][:] = 0
-        data["joined_entropy"][:] = 0
-    for i in range(resolutions[n]):
-        for j in range(word_lens[n]):
-            if (data["transfer_info_col1_col2"].loc[row_names[i], col_names[j]] != 0 and
-                data["transfer_info_col2_col1"].loc[row_names[i], col_names[j]] != 0 and
-                data["mutual_info"].loc[row_names[i], col_names[j]] != 0 and
-                data["col1_entropy"].loc[row_names[i], col_names[j]] != 0 and
-                data["col2_entropy"].loc[row_names[i], col_names[j]] != 0 and
-                data["joined_entropy"].loc[row_names[i], col_names[j]] != 0):
-                print(f"Previamente calculado {to_files[n]}: resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]")
-                continue
-            print(f"Comienzo cálculo resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]")
-            tr, mi, e, ej = transfer_info(resolution(df, i+1), cols[n], j+1)
-            data["transfer_info_col1_col2"].loc[row_names[i], col_names[j]] = tr[0]
-            data["transfer_info_col2_col1"].loc[row_names[i], col_names[j]] = tr[1]
-            data["mutual_info"].loc[row_names[i], col_names[j]] = mi
-            data["col1_entropy"].loc[row_names[i], col_names[j]] = e[0]
-            data["col2_entropy"].loc[row_names[i], col_names[j]] = e[1]
-            data["joined_entropy"].loc[row_names[i], col_names[j]] = ej
-            print(f"Calculado {to_files[n]}: resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]")
-            with open(to_files[n], "wb") as f:
-                pickle.dump(data, f)
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">from_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./DatosSinapsisArtificial/TrozoC_bin.csv&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoG_bin.csv&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoR_bin.csv&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">]]</span>
+<span class="n">to_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dataC.pkl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dataG.pkl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dataR.pkl&quot;</span><span class="p">]</span>
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+<span class="n">word_lens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;word_len </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">word_lens</span><span class="p">))]</span>
+<span class="n">row_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;resolution </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">resolutions</span><span class="p">))]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">from_files</span><span class="p">)):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">from_files</span><span class="p">[</span><span class="n">n</span><span class="p">])[</span><span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="s1">&#39;u1&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="s1">&#39;u1&#39;</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;transfer_info_col1_col2&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;transfer_info_col2_col1&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;mutual_info&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;col1_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;col2_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;joined_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolutions</span><span class="p">[</span><span class="n">n</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">word_lens</span><span class="p">[</span><span class="n">n</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Previamente calculado </span><span class="si">{</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="si">}</span><span class="s2">: resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Comienzo cálculo resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">tr</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">ej</span> <span class="o">=</span> <span class="n">transfer_info</span><span class="p">(</span><span class="n">resolution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mi</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ej</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculado </span><span class="si">{</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="si">}</span><span class="s2">: resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14134,66 +14141,79 @@ devolver la nueva serie</code></pre>
 
 </div>
 </div>
-</div>tanta presenciafrom_files = ["./DatosSinapsisArtificial/TrozoC_bin.csv",
-              "./DatosSinapsisArtificial/TrozoG_bin.csv",
-              "./DatosSinapsisArtificial/TrozoR_bin.csv"]
-cols = [["LP_burst", "VD_burst"],
-        ["LP_burst", "VD_burst"],
-        ["LP_burst", "VD_burst"]]
-bin_cols = [["LP_bin", "VD_bin"],
-            ["LP_bin", "VD_bin"],
-            ["LP_bin", "VD_bin"]]
-to_files = ["dataC_burst.pkl",
-            "dataG_burst.pkl",
-            "dataR_burst.pkl"]
-thresholds = [1000,1000,1000]
-resolutions = [2000, 2000, 2000]
-word_lens = [8, 8, 8]
-col_names = [f"word_len {i+1}" for i in range(max(word_lens))]
-row_names = [f"resolution {i+1}" for i in range(max(resolutions))]
-for n in range(len(from_files)):
-    df = pd.read_csv(from_files[n])[bin_cols[n]]
-    df = get_bursts(df, thresholds[n], bin_cols[n], cols[n])[cols[n]]
-    df = df.astype({cols[n][0]:'u1', cols[n][0]:'u1'})
-    try:
-        with open(to_files[n], "rb") as f:
-            data = pickle.load(f)
-    except FileNotFoundError:
-        data = {
-            "transfer_info_col1_col2" : pd.DataFrame(columns = col_names, index = row_names),
-            "transfer_info_col2_col1" : pd.DataFrame(columns = col_names, index = row_names),
-            "mutual_info" : pd.DataFrame(columns = col_names, index = row_names),
-            "col1_entropy" : pd.DataFrame(columns = col_names, index = row_names),
-            "col2_entropy" : pd.DataFrame(columns = col_names, index = row_names),
-            "joined_entropy" : pd.DataFrame(columns = col_names, index = row_names)
-        }
-        data["transfer_info_col1_col2"][:] = 0
-        data["transfer_info_col2_col1"][:] = 0
-        data["mutual_info"][:] = 0
-        data["col1_entropy"][:] = 0
-        data["col2_entropy"][:] = 0
-        data["joined_entropy"][:] = 0
-    for i in range(resolutions[n]):
-        for j in range(word_lens[n]):
-            if (data["transfer_info_col1_col2"].loc[row_names[i], col_names[j]] != 0 and
-                data["transfer_info_col2_col1"].loc[row_names[i], col_names[j]] != 0 and
-                data["mutual_info"].loc[row_names[i], col_names[j]] != 0 and
-                data["col1_entropy"].loc[row_names[i], col_names[j]] != 0 and
-                data["col2_entropy"].loc[row_names[i], col_names[j]] != 0 and
-                data["joined_entropy"].loc[row_names[i], col_names[j]] != 0):
-                print(f"Previamente calculado {to_files[n]}: resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]").
-                continue
-            print(f"Comienzo cálculo resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]")
-            tr, mi, e, ej = transfer_info(resolution(df, i+1), cols[n], j+1)
-            data["transfer_info_col1_col2"].loc[row_names[i], col_names[j]] = tr[0]
-            data["transfer_info_col2_col1"].loc[row_names[i], col_names[j]] = tr[1]
-            data["mutual_info"].loc[row_names[i], col_names[j]] = mi
-            data["col1_entropy"].loc[row_names[i], col_names[j]] = e[0]
-            data["col2_entropy"].loc[row_names[i], col_names[j]] = e[1]
-            data["joined_entropy"].loc[row_names[i], col_names[j]] = ej
-            print(f"Calculado {to_files[n]}: resolución={i+1}, palabra={j+1} en la posicion[{i}][{j}]")
-            with open(to_files[n], "wb") as f:
-                pickle.dump(data, f)
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tanta</span> <span class="n">presenciafrom_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./DatosSinapsisArtificial/TrozoC_bin.csv&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoG_bin.csv&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;./DatosSinapsisArtificial/TrozoR_bin.csv&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;LP_burst&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_burst&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP_burst&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_burst&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;LP_burst&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_burst&quot;</span><span class="p">]]</span>
+<span class="n">bin_cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;LP_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;VD_bin&quot;</span><span class="p">]]</span>
+<span class="n">to_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dataC_burst.pkl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dataG_burst.pkl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dataR_burst.pkl&quot;</span><span class="p">]</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">word_lens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;word_len </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">word_lens</span><span class="p">))]</span>
+<span class="n">row_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;resolution </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">resolutions</span><span class="p">))]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">from_files</span><span class="p">)):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">from_files</span><span class="p">[</span><span class="n">n</span><span class="p">])[</span><span class="n">bin_cols</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_bursts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">thresholds</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">bin_cols</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">])[</span><span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="s1">&#39;u1&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="s1">&#39;u1&#39;</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;transfer_info_col1_col2&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;transfer_info_col2_col1&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;mutual_info&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;col1_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;col2_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">),</span>
+            <span class="s2">&quot;joined_entropy&quot;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">row_names</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolutions</span><span class="p">[</span><span class="n">n</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">word_lens</span><span class="p">[</span><span class="n">n</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Previamente calculado </span><span class="si">{</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="si">}</span><span class="s2">: resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span><span class="o">.</span>
+                <span class="k">continue</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Comienzo cálculo resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">tr</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">ej</span> <span class="o">=</span> <span class="n">transfer_info</span><span class="p">(</span><span class="n">resolution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">cols</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col1_col2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;transfer_info_col2_col1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mutual_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mi</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col1_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;col2_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;joined_entropy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col_names</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ej</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculado </span><span class="si">{</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="si">}</span><span class="s2">: resolución=</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, palabra=</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> en la posicion[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_files</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
